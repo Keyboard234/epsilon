@@ -1,0 +1,8 @@
+large map with buildings you can enter and clear
+randomly generated??
+collect points when killing enemies
+what can you use points for?
+different guns with different range
+shadowcasting
+use raycasting for bullet map hit, angle and range check for enemy hit
+enemies are other soldiers
