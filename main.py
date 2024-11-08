@@ -42,7 +42,7 @@ def update():
         player.startmoving((new_x_vel, new_y_vel))
     
     if pygame.mouse.get_pressed()[0]:
-        player.fire()
+        player.fire(enemies)
 
     player.update()
 
@@ -65,10 +65,10 @@ def render():
     map1.render(camera, DISPLAY)
     
     #draw vertical background lines
-    for x in range(-1, 2):
-        linex = x*100
-        point1y = -200
-        point2y = 200
+    for x in range(-3, 4):
+        linex = x*map1.gridsize
+        point1y = -map1.gridsize*10
+        point2y = map1.gridsize*10
         
         point1pos = camera.toscreenpos((linex, point1y))
         point2pos = camera.toscreenpos((linex, point2y))
@@ -76,10 +76,10 @@ def render():
         pygame.draw.line(DISPLAY, (255, 255, 255), point1pos, point2pos)
     
     #draw horizontal background lines
-    for y in range(-1, 2):
-        liney = y*100
-        point1x = -200
-        point2x = 200
+    for y in range(-3, 4):
+        liney = y*map1.gridsize
+        point1x = -map1.gridsize*10
+        point2x = map1.gridsize*10
         
         point1pos = camera.toscreenpos((point1x, liney))
         point2pos = camera.toscreenpos((point2x, liney))
@@ -105,10 +105,10 @@ def main():
         render()
 
 if __name__ == "__main__":
-    map1 = Map("data/maps/newmap.json")
+    map1 = Map("data/maps/testmap1.json")
     playerstartpos = [0, 0]
     camera = Camera([0, 0], (display_width, display_height))
-    player = Player(playerstartpos, MAXFPS)
+    player = Player(playerstartpos, MAXFPS, map1)
     enemy = Enemy([20, 20], MAXFPS)
     enemies.append(enemy)
     main()

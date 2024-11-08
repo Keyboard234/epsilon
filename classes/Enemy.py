@@ -42,3 +42,4 @@ class Enemy:
         pygame.draw.line(display, (0, 255, 0), camera.toscreenpos((self.position)), linepoint)
         
         pygame.draw.polygon(display, (255, 0, 0), [camera.toscreenpos(point) for point in pointstransformed])
+        #pygame.draw.circle(display, (0, 100, 100), camera.toscreenpos(self.position), 10)
